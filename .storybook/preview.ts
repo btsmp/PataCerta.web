@@ -1,5 +1,12 @@
 import type { Preview } from "@storybook/react";
 
+import "../src/app/globals.css"
+
+export const parameters = {
+  darkMode: {
+    current: 'dark'
+  }
+};
 const preview: Preview = {
   parameters: {
     controls: {

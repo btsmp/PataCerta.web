@@ -1,0 +1,1 @@
+import '/home/bsmp/Documentos/Projetos/PataCerta.web/node_modules/@storybook/core/dist/core-server/presets/common-manager.js';

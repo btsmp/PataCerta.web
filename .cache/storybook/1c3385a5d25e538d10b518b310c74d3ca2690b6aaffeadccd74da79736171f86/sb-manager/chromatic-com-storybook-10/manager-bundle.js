@@ -1,0 +1,1 @@
+import '/home/bsmp/Documentos/Projetos/PataCerta.web/node_modules/@chromatic-com/storybook/dist/manager.mjs';
