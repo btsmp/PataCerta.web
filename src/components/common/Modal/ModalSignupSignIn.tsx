@@ -1,40 +1,37 @@
 'use client'
 
-import React, { useRef, ReactNode } from 'react'
+import React from 'react'
+import { LogoPataCerta } from '../LogoPataCerta/LogoPataCerta'
+import { FormSignIn } from '@/components/Forms/FormSignIn/FormSignIn'
+import { FormSignUp } from '@/components/Forms/FormSignUp/FormSignUp'
 
 type ModalSignupSignInProps = {
-  children: ReactNode
+  signIn?: boolean
+  signUp?: boolean
+  dialogRef: React.RefObject<HTMLDialogElement>
 }
 
-export function ModalSignupSignIn({ children }: ModalSignupSignInProps) {
-  const dialogRef = useRef<HTMLDialogElement>(null)
-  function openModal() {
-    dialogRef.current?.showModal()
-  }
+export function ModalSignupSignIn({
+  signIn,
+  signUp,
+  dialogRef,
+}: ModalSignupSignInProps) {
   function closeModal() {
     dialogRef.current?.close()
   }
   return (
-    <>
-      <button
-        className="btn"
-        onClick={() => {
-          openModal()
-        }}
-      >
-        open modal
-      </button>
-      <dialog id="modal" className="modal" ref={dialogRef}>
-        <div className="modal-box">
-          <button
-            onClick={closeModal}
-            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-          >
-            ✕
-          </button>
-          {children}
-        </div>
-      </dialog>
-    </>
+    <dialog id="modal" className="modal" ref={dialogRef}>
+      <div className="modal-box flex items-center justify-center flex-col">
+        <button
+          onClick={closeModal}
+          className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+        >
+          ✕
+        </button>
+        <LogoPataCerta />
+        {signIn && <FormSignIn />}
+        {signUp && <FormSignUp />}
+      </div>
+    </dialog>
   )
 }
